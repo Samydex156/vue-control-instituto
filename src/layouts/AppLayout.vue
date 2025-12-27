@@ -27,7 +27,7 @@ const navigate = (item) => {
             :class="['bg-white border-r border-slate-200 transition-all duration-300 flex flex-col', isSidebarOpen ? 'w-64' : 'w-20']">
             <div class="h-16 flex items-center justify-center border-b border-slate-100">
                 <i class="pi pi-box text-indigo-600 text-2xl"></i>
-                <span v-if="isSidebarOpen" class="ml-2 font-bold text-slate-800">VueBase</span>
+                <span v-if="isSidebarOpen" class="ml-2 font-bold text-slate-800">Nueva Tecnología</span>
             </div>
 
             <nav class="flex-1 p-4 space-y-2">
@@ -45,7 +45,7 @@ const navigate = (item) => {
                     <i class="pi pi-bars text-xl"></i>
                 </button>
                 <div class="flex items-center gap-2">
-                    <span class="text-sm font-semibold text-slate-600">Admin User</span>
+                    <span class="text-sm font-semibold text-slate-600">Administrador</span>
                     <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600">
                         <i class="pi pi-user"></i>
                     </div>
