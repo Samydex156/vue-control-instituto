@@ -109,24 +109,21 @@ watch(() => form.fecha_inicio, (newVal) => {
 
 // --- UTILIDAD PARA GENERAR STRING QR ---
 const generarStringQR = (inscripcionId, nombreEstudiante, apellidosEstudiante, nombreCurso) => {
-  // 1. Iniciales del estudiante (Ej: Juan Perez -> JP)
-  const inicialNombre = nombreEstudiante ? nombreEstudiante.trim().charAt(0).toUpperCase() : 'X'
-  const inicialApellido = apellidosEstudiante ? apellidosEstudiante.trim().charAt(0).toUpperCase() : 'X'
-  const iniciales = `${inicialNombre}${inicialApellido}`
+  // 1. Iniciales (S.D.)
+  const n = nombreEstudiante ? nombreEstudiante.trim().charAt(0) : 'X'
+  const a = apellidosEstudiante ? apellidosEstudiante.trim().charAt(0) : 'X'
+  const iniciales = (n + a).toUpperCase()
 
-  // 2. Código del Curso (Ej: Robótica -> ROB)
-  let codigoCurso = 'CUR'
+  // 2. Código Curso (OFI)
+  let cod = 'CUR'
   if (nombreCurso) {
-    const palabras = nombreCurso.trim().split(' ')
-    if (palabras.length === 1 && palabras[0].length >= 3) {
-      codigoCurso = palabras[0].substring(0, 3).toUpperCase()
-    } else {
-      codigoCurso = palabras.map(p => p.charAt(0).toUpperCase()).join('')
-    }
+    const p = nombreCurso.trim().split(' ')
+    cod = p.length === 1 ? p[0].substring(0, 3) : p.map(x => x[0]).join('')
   }
+  const codigoCurso = cod.toUpperCase()
 
-  // 3. Formato Final: JP-ROB-125 (Donde 125 es el ID de la inscripción)
-  // Usamos el ID de inscripción para asegurar unicidad absoluta.
+  // 3. Resultado: SD-OFI-125
+  // Es elegante y único porque cada inscripción tiene su propio ID.
   return `${iniciales}-${codigoCurso}-${inscripcionId}`
 }
 

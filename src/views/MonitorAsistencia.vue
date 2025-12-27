@@ -40,7 +40,8 @@ const fetchLogs = async () => {
             hora_entrada, 
             estado, 
             pago_al_dia,
-            estudiantes ( id, nombre, apellido_paterno )
+            estudiantes ( id, nombre, apellido_paterno ),
+            cursos ( id, nombre )
         `)
         .gte('hora_entrada', start)
         .lte('hora_entrada', end)
@@ -174,17 +175,21 @@ onUnmounted(() => {
                         </template>
                     </Column>
 
-                    <Column header="Estudiante">
+                    <Column header="Estudiante / Curso">
                         <template #body="slotProps">
                             <div class="flex flex-col">
                                 <span class="font-bold text-slate-800">
                                     {{ slotProps.data.estudiantes?.nombre }} {{
                                         slotProps.data.estudiantes?.apellido_paterno }}
                                 </span>
-                                <span
-                                    class="text-[10px] text-indigo-500 font-medium bg-indigo-50 px-2 py-0.5 rounded-full w-fit mt-1">
-                                    ID: {{ slotProps.data.estudiantes?.id }}
-                                </span>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span
+                                        class="text-[10px] text-indigo-500 font-bold bg-indigo-50 px-2 py-0.5 rounded-full">
+                                        {{ slotProps.data.cursos?.nombre || 'Curso no especificado' }}
+                                    </span>
+                                    <span class="text-[9px] text-slate-400">ID: {{ slotProps.data.estudiantes?.id
+                                        }}</span>
+                                </div>
                             </div>
                         </template>
                     </Column>
