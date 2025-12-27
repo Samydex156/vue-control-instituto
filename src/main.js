@@ -6,10 +6,12 @@ import "./style.css";
 
 // PrimeVue
 import PrimeVue from 'primevue/config';
-import Aura from '@primevue/themes/aura'; 
+import Aura from '@primevue/themes/aura';
+import Tooltip from 'primevue/tooltip';
 import 'primeicons/primeicons.css'; // Iconos
 
 const app = createApp(App);
+app.directive('tooltip', Tooltip);
 
 app.use(createPinia()); // Activamos Pinia
 app.use(router); // Activamos Router

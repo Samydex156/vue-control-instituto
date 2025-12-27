@@ -7,8 +7,11 @@ const isSidebarOpen = ref(true);
 
 const items = [
     { label: 'Inicio', icon: 'pi pi-home', route: '/' },
-    { label: 'Showcase & Tests', icon: 'pi pi-star', route: '/demo' },
-    { label: 'GitHub Repo', icon: 'pi pi-github', url: 'https://github.com/tu-usuario/repo' }
+    { label: 'Inscripción', icon: 'pi pi-user-plus', route: '/inscripcion' },
+    { label: 'Registrar Pago', icon: 'pi pi-credit-card', route: '/pagos' },
+    { label: 'Crear Curso', icon: 'pi pi-desktop', route: '/nuevo-curso' },
+    { label: 'Registro Estudiantil', icon: 'pi pi-cog', route: '/registros' },
+    { label: 'Monitor Asistencia', icon: 'pi pi-desktop', route: '/monitor-asistencia' }
 ];
 
 const navigate = (item) => {
@@ -19,16 +22,16 @@ const navigate = (item) => {
 
 <template>
     <div class="flex h-screen bg-slate-50 overflow-hidden">
-        
-        <aside :class="['bg-white border-r border-slate-200 transition-all duration-300 flex flex-col', isSidebarOpen ? 'w-64' : 'w-20']">
+
+        <aside
+            :class="['bg-white border-r border-slate-200 transition-all duration-300 flex flex-col', isSidebarOpen ? 'w-64' : 'w-20']">
             <div class="h-16 flex items-center justify-center border-b border-slate-100">
                 <i class="pi pi-box text-indigo-600 text-2xl"></i>
                 <span v-if="isSidebarOpen" class="ml-2 font-bold text-slate-800">VueBase</span>
             </div>
 
             <nav class="flex-1 p-4 space-y-2">
-                <button v-for="item in items" :key="item.label" 
-                    @click="navigate(item)"
+                <button v-for="item in items" :key="item.label" @click="navigate(item)"
                     class="w-full flex items-center p-3 rounded-lg hover:bg-indigo-50 text-slate-600 hover:text-indigo-600 transition-colors">
                     <i :class="[item.icon, 'text-lg']"></i>
                     <span v-if="isSidebarOpen" class="ml-3 font-medium">{{ item.label }}</span>
@@ -61,6 +64,13 @@ const navigate = (item) => {
 </template>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active { transition: opacity 0.2s ease; }
-.fade-enter-from, .fade-leave-to { opacity: 0; }
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
 </style>
