@@ -9,9 +9,9 @@ const items = [
     { label: 'Inicio', icon: 'pi pi-home', route: '/' },
     { label: 'Inscripción', icon: 'pi pi-user-plus', route: '/inscripcion' },
     { label: 'Registrar Pago', icon: 'pi pi-credit-card', route: '/pagos' },
-    { label: 'Crear Curso', icon: 'pi pi-desktop', route: '/nuevo-curso' },
-    { label: 'Registro Estudiantil', icon: 'pi pi-cog', route: '/registros' },
-    { label: 'Monitor Asistencia', icon: 'pi pi-desktop', route: '/monitor-asistencia' }
+    { label: 'Crear Curso', icon: 'pi pi-pen-to-square', route: '/nuevo-curso' },
+    { label: 'Registro Estudiantil', icon: 'pi pi-users', route: '/registros' },
+    { label: 'Monitor Asistencia', icon: 'pi pi-stopwatch', route: '/monitor-asistencia' }
 ];
 
 const navigate = (item) => {
